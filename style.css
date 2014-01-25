@@ -1,0 +1,68 @@
+body{
+
+}
+
+.mobile{
+  position: fixed;
+  left:38.98%;
+  height:750px;
+  width:340px;
+  background-image: url("mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: 120% 100%;
+  background-position: center;
+}
+.screen{
+  position: relative;
+  top:80px;
+  left:20px;
+  width:291px;
+  height:495px;
+  background:gold;
+}
+
+.topbar{
+  height:30px;
+  width:100%;
+  background:grey;
+  vertical-align:center;
+}
+
+.topbar>.button{
+  height:100%;
+  width:40px;
+  background:black;
+}
+.topbar>*{
+  display:inline-block;
+}
+.topbar>.input{
+  position:absolute;
+  top:4px;
+}
+
+.input{
+  background-color: rgba(0,0,0,0);
+  border:none;
+}
+
+.sidebar{
+  float:left;
+  top:0px;
+  height:93%;
+  width:70%;
+  background:grey;
+  display:none;
+  opacity:0.6;
+}
+.content>button{
+  float:right;
+}
+.content>.tab{
+  //background: ghostwhite;
+  height:20px;
+  width:20%;
+  display:inline-block;
+  margin:2px;
+}
+
