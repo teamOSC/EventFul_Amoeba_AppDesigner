@@ -11,7 +11,8 @@ $('.sidebar>button').click(function () {
 
 $('.content>button').click(function () {
   var e = $('<input>');
-  $('.content').append(e);
+  $('.band').prepend(e);
   e.attr('class', 'input  tab');
   e.attr('value', 'tab');
 });
+

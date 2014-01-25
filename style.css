@@ -1,37 +1,56 @@
-body{
+/*============
+    GLOBALS          
+=============*/
 
+.input{
+  background-color: rgba(0,0,0,0);
+  border:none;
 }
+
+/*============
+    big boys          
+=============*/
 
 .mobile{
   position: fixed;
   left:38.98%;
   height:750px;
   width:340px;
-  background-image: url("mobile.jpg");
+  background-image: url("img/mobile.jpg");
   background-repeat: no-repeat;
   background-size: 120% 100%;
   background-position: center;
 }
+
 .screen{
   position: relative;
   top:80px;
   left:20px;
   width:291px;
   height:495px;
-  background:gold;
+  background:ghostwhite;
 }
 
+/*============
+    topbar          
+=============*/
+
 .topbar{
+  position: absolute;
   height:30px;
   width:100%;
-  background:grey;
+  background:black;
   vertical-align:center;
+  z-index: +3;
 }
 
 .topbar>.button{
   height:100%;
   width:40px;
-  background:black;
+  background-image: url("img/drawer.png");
+  background-size: 80% 70%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .topbar>*{
   display:inline-block;
@@ -39,30 +58,80 @@ body{
 .topbar>.input{
   position:absolute;
   top:4px;
+  color:white;
 }
 
-.input{
-  background-color: rgba(0,0,0,0);
-  border:none;
-}
+/*============
+    sidebar          
+=============*/
 
 .sidebar{
+  position: absolute;
   float:left;
-  top:0px;
-  height:93%;
+  top:14px;
+  height:97.4%;
   width:70%;
   background:grey;
   display:none;
-  opacity:0.6;
+  opacity:0.9;
+  z-index: +1;
+}
+.sidebar>button{
+  float: right;
+}
+.sidebar>p{
+  padding:5px;
+}
+.sidebar>p:hover{
+  background: white;
+  cursor:pointer;
+}
+
+
+/*============
+    content          
+=============*/
+
+.content{
+  position: absolute;
+  top:30px;
+  text-align: center;
 }
 .content>button{
   float:right;
 }
-.content>.tab{
-  //background: ghostwhite;
+.content>.band{
+  background: lightblue;
+  padding:5px 5px 5px 5px; 
+}
+.content>.band>.tab{
+  color:white;
+  //background: tomato;
   height:20px;
   width:20%;
   display:inline-block;
-  margin:2px;
-}
+  text-align: center;
+  padding:10px;
+  border-right: 1px solid white;
+  //border-left: 1px solid white;
+  cursor:pointer;
+  margin: 0px 2px 4px 2px;
 
+}
+.content>.band>.tab:hover{
+  border-bottom: 4px solid white;
+}
+.content>.slides{
+  margin-top: 20px;
+  position: relative;
+}
+.content>.slides>img{
+  position: relative;
+  height:30%;
+}
+.content>.slides>textarea{
+  width:85%;
+  background-color: rgba(0,0,0,0);
+  border:none;
+  height:250px;
+}
