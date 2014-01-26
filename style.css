@@ -2,9 +2,13 @@
     GLOBALS          
 =============*/
 
-.input{
+.invisible{
   background-color: rgba(0,0,0,0);
   border:none;
+}
+
+.floatright{
+  float:right;
 }
 
 /*============
@@ -13,7 +17,7 @@
 
 .mobile{
   position: fixed;
-  left:38.98%;
+  left:500px;
   height:750px;
   width:340px;
   background-image: url("img/mobile.jpg");
@@ -55,7 +59,7 @@
 .topbar>*{
   display:inline-block;
 }
-.topbar>.input{
+.topbar>input{
   position:absolute;
   top:4px;
   color:white;
@@ -76,9 +80,6 @@
   opacity:0.9;
   z-index: +1;
 }
-.sidebar>button{
-  float: right;
-}
 .sidebar>p{
   padding:5px;
 }
@@ -93,18 +94,27 @@
 =============*/
 
 .content{
-  position: absolute;
+  position: relative;
   top:30px;
   text-align: center;
 }
-.content>button{
+.content>div{
+  position: absolute;
+  width:100%;
+}
+
+/*================
+ content > events         
+=================*/
+
+.events>button{
   float:right;
 }
-.content>.band{
+.events>.band{
   background: lightblue;
   padding:5px 5px 5px 5px; 
 }
-.content>.band>.tab{
+.events>.band>.tab{
   color:white;
   //background: tomato;
   height:20px;
@@ -118,20 +128,44 @@
   margin: 0px 2px 4px 2px;
 
 }
-.content>.band>.tab:hover{
+
+.events>.band>.tab:hover{
   border-bottom: 4px solid white;
 }
-.content>.slides{
+
+.events>.slides{
   margin-top: 20px;
   position: relative;
 }
-.content>.slides>img{
+
+.events>.slides>img{
   position: relative;
   height:30%;
 }
-.content>.slides>textarea{
+
+.events>.slides>textarea{
+  position: static;
   width:85%;
-  background-color: rgba(0,0,0,0);
-  border:none;
-  height:250px;
+}
+
+/*================
+content > register     
+=================*/
+
+.field{
+  height:50px;
+}
+
+.field>input{
+  display: inline-block;
+  width:40%;
+}
+
+/*================
+content > contact         
+=================*/
+
+#title{
+  text-align: center;
+  width:100%;
 }

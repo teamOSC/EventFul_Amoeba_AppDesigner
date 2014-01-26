@@ -1,33 +1,54 @@
 <html>
 <head>
-	<title>App Designer</title>
+	<title>Amoeba</title>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <div class='mobile'>
       <div class='screen'>
-        <div class='topbar'>
-          <div class='button'></div>
-          <input class='input' type='text' value='App Name'>
-        </div>
-        
-        <div class='sidebar'>
-          <p><input class='input' type="checkbox" value='events'> Events<br></p>
-          <p><input class='input' type="checkbox" value='register'> Register<br></p>
-          <p><input class='input' type="checkbox" value='contacts'> Contact<br></p>
-        </div>
+              <div class='topbar'>
+                <div class='button'></div>
+                <input class='invisible' type='text' value='App Name'>
+              </div>
+              
+              <div class='sidebar'>
+                <p class='foo' id='events'><input class='input' type="checkbox" value='events'> Events<br></p>
+                <p id='register'><input class='invisible' type="checkbox" value='register'> Register<br></p>
+                <p id='contact'><input class='invisible' type="checkbox" value='contacts'> Contact<br></p>
+              </div>
 
-        <div class='content'>
-          <button>+</button>
-          <div class='band'>
-              <input class='tab input' value ='tab'>
-          </div>
-          <div class='slides'>
-              <img src='img/fest.jpg'>
-              <textarea>Your content goes here !!</textarea>
-          </div>
-        </div>
+              <div class='content'>
+
+                    <div class='events'>
+                        <button class='floatright'>+</button>
+                        <div class='band'>
+                            <input class='tab invisible' value ='tab'>
+                        </div>
+                        <div class='slides'>
+                            <img src='img/fest.jpg'>
+                            <textarea class='insisible'>Your content goes here !!</textarea>
+                        </div>
+                    </div>
+
+                    <div class='register'>
+                       <h1>Register</h1>
+                       <button class='floatright'>+</button><br><br>
+                       <div class='field'><input class='invisible' value='field'><input placeholder='for end customer'></div>
+                    
+                    </div>
+
+                    <div class='contact'>
+                       <h1>Contact us</h1>
+                       <button class='floatright'>+</button><br><br>
+                       <div class='field'>
+                            <input id='title' class='invisible' placeholder='title'>
+                            <input class='invisible' placeholder='name'>
+                            <input class='invisible' placeholder='number'>
+                       </div>
+                    </div>
+
+              </div>
       </div>
 </div>
 
