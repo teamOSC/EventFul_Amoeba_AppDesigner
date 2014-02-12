@@ -2,7 +2,7 @@
    Globals          
 =============*/
 $('.content>*').hide();
-$('.content>.events').show();
+$('.content>.register').show();
 
 $('.button').click(function () {
     $(".sidebar").toggle();
@@ -36,6 +36,7 @@ function handleFileSelect(evt) {
   })(f);
   reader.readAsDataURL(f);
 }
+
 //event listener for normal elements
 document.getElementById('img_upload_input').addEventListener('change', handleFileSelect, false);
 //event listener for dynamic elements
@@ -66,12 +67,13 @@ $('.events>button').click(function () {
   var  count = $(".band").children().length+1;
 
   template_tab='<input id="tab{0}" match="slide{1}" class="invisible tab" value ="Tab {2}">'.f(count,count,count);
+
   template_slide='<div class="slides" id="slide{0}">\
-          <button class="remove" id="{1}">-</button>\
-          <img class="img" src="http://placehold.it/450x250&text=Image for tab {2}">\
+          <button class="floatright remove hint--right" data-hint="Delete tab #{0}" id="{0}">-</button>\
+          <img class="img" src="http://placehold.it/450x250&text=Tab {0}">\
           <input type="file" id="img_upload_input" name="data[]"/>\
-          <textarea class="invisible" placeholder="Description for tab {3}"></textarea>\
-        </div>'.f(count,count,count,count);
+          <textarea class="invisible" placeholder="Description for tab {0}"></textarea>\
+        </div>'.f(count);
 
   $('.band').append(template_tab);
   $(".events").append(template_slide);
@@ -88,6 +90,7 @@ $('.band').on('click','input',function () {
   $('#'+slide).show();
 });
 
+//deleting a tab
 $('.events').on('click','.slides>button',function () {
    var num = $(this).attr("id");
    $("#tab"+num).remove();
@@ -102,37 +105,23 @@ $('.events').on('click','.slides>button',function () {
 Register page          
 =============*/
 $('.register>button').click(function () {
-  var div = $('<div>');
-  var input1 = $('<input>');
-  var input2 = $('<input>');
-  div.append(input1);
-  div.append(input2);
-  $('.register').append(div);
-  div.attr('class', 'field');
-  input1.attr('value', 'field');
-  input1.attr('class', 'invisible');
+  var count = $(".regfield").length+1;
+  var template_reg = '<div class="field regfield">\
+        <input class="invisible" placeholder="field {1}">\
+        <input placeholder="input box {2}">\
+      </div>'.f(count,count,count);
+  $(".register").append(template_reg);
 });
 
 /*============
 Contact page          
 =============*/
 $('.contact>button').click(function () {
-  var div = $('<div>');
-  var input1 = $('<input>');
-  var input2 = $('<input>');
-  var input3 = $('<input>');
-  div.append(input1);
-  div.append(input2);
-  div.append(input3);
-  $('.contact').append(div);
-  div.attr('class', 'field');
-  input1.attr('id', 'title');
-  
-  input1.attr('placeholder', 'Title');
-  input2.attr('placeholder', 'Name');
-  input3.attr('placeholder', 'Number');
-  
-  input1.attr('class', 'invisible');
-  input2.attr('class', 'invisible');
-  input3.attr('class', 'invisible');
+  var count = $(".confield").length +1;
+  var template_con = '<div class="field confield">\
+        <input id="title" class="invisible" placeholder="title{0}">\
+        <input class="invisible" placeholder="name {0}">\
+        <input class="invisible" placeholder="number {0}">\
+      </div>'.f(count);
+  $(".contact").append(template_con);
 });

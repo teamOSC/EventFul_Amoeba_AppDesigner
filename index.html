@@ -2,14 +2,15 @@
 <head>
 	<title>Amoeba</title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="hint.min.css">
 </head>
 <body>
 
 <div class='mobile'>
       <div class='screen'>
               <div class='topbar'>
-                <div class='button'></div>
-                <input class='invisible' type='text' value='App Name'>
+                  <div class="button hint--left" data-hint="Toggle Side Menu"></div>
+                  <input class='invisible' type='text' value='App Name'>
               </div>
               
               <div class='sidebar'>
@@ -21,13 +22,13 @@
               <div class='content'>
 
                     <div class='events'>
-                        <button class='floatright'>+</button>
+                        <button class="floatright hint--right" data-hint="Add a new tab">+</button>
                         <div class='band'>
                             <input id="tab1" match="slide1" class="invisible tab t1" value ="Tab 1">
                         </div>
                         <div class="slides" id="slide1">
                             <button class="remove" id="1">-</button>
-                            <img class='img' src="http://placehold.it/450x250&text=Image for tab 1">
+                            <img class='img' src="http://placehold.it/450x250&text=Tab 1">
                             <input type="file" id="img_upload_input" name="data[]"/>
                             <textarea class="invisible" placeholder="Description for tab 1"></textarea>
                         </div>
@@ -35,19 +36,12 @@
 
                     <div class='register'>
                        <h1>Register</h1>
-                       <button class='floatright'>+</button><br><br>
-                       <div class='field'><input class='invisible' placeholder='field'><input placeholder='for end customer'></div>
-                    
+                       <button class="floatright hint--right" data-hint="Add new input field">+</button><br><br>
                     </div>
 
                     <div class='contact'>
                        <h1>Contact us</h1>
-                       <button class='floatright'>+</button><br><br>
-                       <div class='field'>
-                            <input id='title' class='invisible' placeholder='title'>
-                            <input class='invisible' placeholder='name'>
-                            <input class='invisible' placeholder='number'>
-                       </div>
+                       <button class="floatright hint--right" data-hint="Add new Contact">+</button><br><br>
                     </div>
 
               </div>
