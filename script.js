@@ -42,7 +42,11 @@ $('.events>button').click(function () {
   var  count = $(".band").children().length+1;
 
   template_tab='<input id="tab{0}" match="slide{1}" class="invisible tab" value ="Tab {2}">'.f(count,count,count);
-  template_slide='<div class="slides" id="slide{0}"><img src="http://placehold.it/450x250&text=Image for tab {1}"><textarea class="invisible" placeholder="Description for tab {2}"></textarea></div>'.f(count,count,count);
+  template_slide='<div class="slides" id="slide{0}">\
+          <button class="remove" id="{1}">-</button>\
+          <img src="http://placehold.it/450x250&text=Image for tab {2}">\
+          <textarea class="invisible" placeholder="Description for tab {3}"></textarea>\
+        </div>'.f(count,count,count,count);
 
   $('.band').append(template_tab);
   $(".events").append(template_slide);
@@ -57,6 +61,16 @@ $('.band').on('click','input',function () {
   var slide = $(this).attr("match");
   $('.slides').hide();
   $('#'+slide).show();
+});
+
+$('.events').on('click','.slides>button',function () {
+   var num = $(this).attr("id");
+   $("#tab"+num).remove();
+   $("#slide"+num).remove();
+   //$(this).parent().remove();
+   //show the previous tab after deletion
+   $('.slides').hide();
+   $('#slide'+(num-1) ).show();
 });
 
 /*============
