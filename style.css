@@ -148,7 +148,15 @@
   width:85%;
   height:40%;
 }
-
+.remove{
+  position: absolute;
+  z-index: +2;
+  top:0;
+  right:0;
+}
+.img{
+  width: 85%;
+}
 /*================
 content > register     
 =================*/

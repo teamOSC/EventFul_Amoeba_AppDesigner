@@ -17,6 +17,30 @@ String.prototype.format = String.prototype.f = function() {
     return s;
 };
 
+/*File uploader*/
+function handleFileSelect(evt) {
+  //var elem = $(this).attr("id");
+  var img = $(this).prev();
+  //$(this).prev().attr("src","http://placehold.it/450x250&text=foo");
+  var files = evt.target.files;
+  f = files[0];
+  var reader = new FileReader();
+  reader.onload = (function(theFile) {
+      return function(e) {
+        img.attr("src",e.target.result);
+        img.attr("title",theFile.name);
+        //var span = document.createElement('span');
+        //span.innerHTML = ['<img src="', e.target.result,'" title="', escape(theFile.name), '"/>'].join('');
+        //document.getElementById('img_placeholder').insertBefore(span, null);
+      };
+  })(f);
+  reader.readAsDataURL(f);
+}
+//event listener for normal elements
+document.getElementById('img_upload_input').addEventListener('change', handleFileSelect, false);
+//event listener for dynamic elements
+$(".events").on('change','.slides>#img_upload_input', handleFileSelect);
+
 /*============
    Sidebar          
 =============*/
@@ -44,7 +68,8 @@ $('.events>button').click(function () {
   template_tab='<input id="tab{0}" match="slide{1}" class="invisible tab" value ="Tab {2}">'.f(count,count,count);
   template_slide='<div class="slides" id="slide{0}">\
           <button class="remove" id="{1}">-</button>\
-          <img src="http://placehold.it/450x250&text=Image for tab {2}">\
+          <img class="img" src="http://placehold.it/450x250&text=Image for tab {2}">\
+          <input type="file" id="img_upload_input" name="data[]"/>\
           <textarea class="invisible" placeholder="Description for tab {3}"></textarea>\
         </div>'.f(count,count,count,count);
 
