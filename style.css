@@ -146,6 +146,7 @@
 .events>.slides>textarea{
   position: static;
   width:85%;
+  height:40%;
 }
 
 /*================

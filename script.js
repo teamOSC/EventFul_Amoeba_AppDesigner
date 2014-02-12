@@ -1,22 +1,30 @@
+/*============
+   Globals          
+=============*/
 $('.content>*').hide();
-$('.content>.contact').show();
+$('.content>.events').show();
 
 $('.button').click(function () {
     $(".sidebar").toggle();
 });
 
+/*Sexy string formatting hack in jquery*/
+String.prototype.format = String.prototype.f = function() {
+    var s = this,i = arguments.length;
+    while (i--) {
+        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+    }
+    return s;
+};
+
+/*============
+   Sidebar          
+=============*/
 $('.sidebar>button').click(function () {
   var e = $('<input>');
   $('.sidebar').append(e);
   e.attr('class', 'invisible');
   e.attr('value', 'item');
-});
-
-$('.events>button').click(function () {
-  var e = $('<input>');
-  $('.band').prepend(e);
-  e.attr('class', 'invisible  tab');
-  e.attr('value', 'tab');
 });
 
 $('.sidebar>p').click(function () {
@@ -26,6 +34,34 @@ $('.sidebar>p').click(function () {
     $(".sidebar").toggle();
 });
 
+
+/*============
+  Events page          
+=============*/
+$('.events>button').click(function () {
+  var  count = $(".band").children().length+1;
+
+  template_tab='<input id="tab{0}" match="slide{1}" class="invisible tab" value ="Tab {2}">'.f(count,count,count);
+  template_slide='<div class="slides" id="slide{0}"><img src="http://placehold.it/450x250&text=Image for tab {1}"><textarea class="invisible" placeholder="Description for tab {2}"></textarea></div>'.f(count,count,count);
+
+  $('.band').append(template_tab);
+  $(".events").append(template_slide);
+  //hide all except one
+  $('.slides').hide();
+  $('#slide'+count).show();
+});
+
+//hide all except on onclick
+$('.band').on('click','input',function () {
+  var elem = $(this).attr("id");
+  var slide = $(this).attr("match");
+  $('.slides').hide();
+  $('#'+slide).show();
+});
+
+/*============
+Register page          
+=============*/
 $('.register>button').click(function () {
   var div = $('<div>');
   var input1 = $('<input>');
@@ -38,6 +74,9 @@ $('.register>button').click(function () {
   input1.attr('class', 'invisible');
 });
 
+/*============
+Contact page          
+=============*/
 $('.contact>button').click(function () {
   var div = $('<div>');
   var input1 = $('<input>');
