@@ -1,10 +1,20 @@
 /*============
     GLOBALS          
 =============*/
-
+@font-face {
+    font-family: 'Roboto';
+    //src: url('Roboto-Thin-webfont.ttf') format('truetype');
+    src: url('Roboto-Light-webfont.ttf') format('truetype');
+    //font-weight: normal;
+    //font-style: normal;
+}
+.mobile,input,textarea{
+  font-family:'Roboto', sans-serif;
+}
 .invisible{
   background-color: rgba(0,0,0,0);
   border:none;
+  border: 1px dashed rgba(66, 63, 63, 0.38);
 }
 
 .floatright{
@@ -87,19 +97,24 @@
   position: absolute;
   float:left;
   top:14px;
-  height:97.4%;
+  display:none;
+  height:461px;
+  padding-top:20px;
   width:70%;
   background:grey;
-  display:none;
-  opacity:0.9;
   z-index: +1;
+  opacity: 0.8;
 }
 .sidebar>p{
   padding:5px;
+  text-align: center;
+  border-radius: 3px;
+  margin:3px;
 }
 .sidebar>p:hover{
   background: white;
   cursor:pointer;
+  opacity: 0.8;
 }
 
 
@@ -120,7 +135,6 @@
 /*================
  content > events         
 =================*/
-
 .events>button{
   position: absolute;
   z-index: +3;
@@ -128,29 +142,21 @@
   right:0;
 }
 .events>.band{
-  background: lightblue;
-  padding:5px 5px 5px 5px; 
+  background: gold;
+  padding:5px 5px 0 5px; 
   overflow: scroll;
   overflow-y:hidden;
   white-space: nowrap;
 }
 .events>.band>.tab{
-  display: inline;
   color:white;
-  //background: tomato;
   height:20px;
   width:30%;
   display:inline-block;
   text-align: center;
   padding:10px;
-  border-right: 1px solid white;
-  //border-left: 1px solid white;
   cursor:pointer;
   margin: 0px 2px 4px 2px;
-}
-
-.events>.band>.tab:hover{
-  border-bottom: 4px solid white;
 }
 
 .events>.slides{
@@ -161,28 +167,43 @@
 .events>.slides>img{
   position: relative;
   height:30%;
+  width: 85%;
 }
 
 .events>.slides>textarea{
-  position: static;
   width:85%;
-  height:40%;
+  height:230px;
+  border: 1px dashed #999;
 }
-.remove{
-  position: absolute;
-  z-index: +2;
-  top:0;
+
+.addrem{
+  border-radius: 30px;
+  text-align: center;
+  border:2px solid #999;
+  opacity:0.4;
+}
+.addrem:hover{
+  opacity:0.9;
+  cursor: pointer;
+}
+.slides>.addrem{
+  position:absolute;
+  top:-20px;
   right:0;
 }
-.img{
-  width: 85%;
+.slides>#img_upload_input{
+  opacity:0.4;
+}
+.slides>#img_upload_input:hover{
+  opacity:0.8;
+  cursor: pointer;
 }
 /*================
 content > register     
 =================*/
-
 .field{
   height:50px;
+  margin-top:10px;
 }
 
 .field>input{
@@ -193,8 +214,8 @@ content > register
 /*================
 content > contact         
 =================*/
-
 #title{
   text-align: center;
   width:100%;
 }
+

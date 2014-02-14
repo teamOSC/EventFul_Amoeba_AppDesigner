@@ -5,7 +5,6 @@
   <link rel="stylesheet" type="text/css" href="hint.min.css">
 </head>
 <body>
-
 <div class='mobile'>
       <div class='screen'>
               <div class='topbar'>
@@ -14,20 +13,20 @@
               </div>
               
               <div class='sidebar'>
-                <p class='foo' id='events'><input class='input' type="checkbox" value='events'> Events<br></p>
-                <p id='register'><input class='invisible' type="checkbox" value='register'> Register<br></p>
-                <p id='contact'><input class='invisible' type="checkbox" value='contacts'> Contact<br></p>
+                <p id='events'>Events<br></p>
+                <p id='register'>Register<br></p>
+                <p id='contact'>Contact Us<br></p>
               </div>
 
               <div class='content'>
 
                     <div class='events'>
-                        <button class="floatright hint--right" data-hint="Add a new tab">+</button>
+                        <button class="addrem floatright hint--right" data-hint="Add a new tab">+</button>
                         <div class='band'>
                             <input id="tab1" match="slide1" class="invisible tab t1" value ="Tab 1">
                         </div>
                         <div class="slides" id="slide1">
-                            <button class="remove" id="1">-</button>
+                            <button class="addrem floatright hint--right button" data-hint="Delete tab 1" id="1">-</button>
                             <img class='img' src="http://placehold.it/450x250&text=Tab 1">
                             <input type="file" id="img_upload_input" name="data[]"/>
                             <textarea class="invisible" placeholder="Description for tab 1"></textarea>
@@ -47,7 +46,7 @@
               </div>
       </div>
 </div>
-
+<button id='publish'>Publish</button>
 <script src="jquery-latest.min.js"></script>
 <script src='script.js'></script>
 
