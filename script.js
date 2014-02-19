@@ -71,7 +71,7 @@ $('.events>button').click(function () {
 
   template_slide='<div class="slides" id="slide{0}">\
           <button class="addrem floatright remove hint--right" data-hint="Delete Tab #{0}" id="{0}">-</button>\
-          <img class="img" src="http://placehold.it/450x250&text=Tab #{0}">\
+          <img class="img" src="http://placehold.it/450x250&text=Tab {0}">\
           <input type="file" id="img_upload_input" name="data[]"/>\
           <textarea class="invisible" placeholder="Description for Tab #{0}"></textarea>\
         </div>'.f(count);
