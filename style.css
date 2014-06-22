@@ -170,7 +170,20 @@
   width: 85%;
 }
 
+.about>img{
+  position: relative;
+  height:30%;
+  width: 85%;
+}
+
+
 .events>.slides>textarea{
+  width:85%;
+  height:230px;
+  border: 1px dashed #999;
+}
+
+.about>textarea{
   width:85%;
   height:230px;
   border: 1px dashed #999;
