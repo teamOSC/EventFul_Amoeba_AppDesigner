@@ -61,21 +61,27 @@ $('#publish').click( function(){
     }
 
     contact_xml = '<?xml version="1.0" encoding="utf-8"?><resources><string-array name="contact_names">{0}</string-array><string-array name="contact_emails">{1}</string-array></resources>'.f(A,B);
-    register_xml = '<?xml version="1.0" encoding="utf-8"?><resources><string-array name="labels">{0}</string-array></resources>'.f(C)
-    event_xml = '<?xml version="1.0" encoding="utf-8"?><resources><string-array name="event_names">{0}</string-array><string-array name="event_titles">{1}</string-array><string-array name="event_descrptions">{2}</string-array></resources>'.f(D,E,F)
+    register_xml = '<?xml version="1.0" encoding="utf-8"?><resources><string-array name="labels">{0}</string-array></resources>'.f(C);
+    event_xml = '<?xml version="1.0" encoding="utf-8"?><resources><string-array name="event_names">{0}</string-array><string-array name="event_titles">{1}</string-array><string-array name="event_descrptions">{2}</string-array></resources>'.f(D,E,F);
 
+    xml = contact_xml+register_xml+event_xml
 
-    console.log(event_xml);
+    $.ajax({
+                        type: 'POST',
+                        url:  "http://springboard.championswimmer.in:5001/upload",
+                        data: xml,
+                        dataType:"json",
+                        success: function(val) {
+                            console.log(e);
+                            alert("success"+val);
+                        },
+                        error: function(e) {
+                            console.log(e)
+                            alert("Failure"+ JSON.stringify(e));
 
-    template_slide='<div class="slides" id="slide{0}">\
-          <button class="addrem floatright remove hint--right" data-hint="Delete Tab #{0}" id="{0}">-</button>\
-          <img class="img" src="http://placehold.it/450x250&text=Tab {0}">\
-          <input type="file" id="img_upload_input" name="data[]"/>\
-          <textarea class="invisible" placeholder="Description for Tab #{0}"></textarea>\
-        </div>'.f(1,2);
+                        }
+    });
 
-    
-    //console.log(event_picture_arr);
 });
 
 /*Sexy string formatting hack in jquery*/
